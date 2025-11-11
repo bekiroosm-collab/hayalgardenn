@@ -237,26 +237,25 @@ a {
   padding: 60px 0;
 }
 
+.categories {
+  background-color: white;
+  padding: 60px 0;
+}
+
 .category-list {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* hepsi aynı yükseklik */
+  align-items: stretch;
   gap: 20px;
   list-style: none;
   padding: 0;
   margin: 0 auto;
   max-width: 1300px;
-  flex-wrap: nowrap; /* tek satırda kal */
-  overflow-x: auto;  /* taşarsa yatay scroll */
-  scrollbar-width: none;
-}
-
-.category-list::-webkit-scrollbar {
-  display: none;
+  flex-wrap: nowrap; /* masaüstü: tek satırda */
 }
 
 .cat-item {
-  flex: 0 0 calc(20% - 20px); /* 5 kutu tam yan yana */
+  flex: 1 1 calc(20% - 20px); /* 5 kutu yan yana */
   background-color: var(--light-gray);
   border-radius: 12px;
   box-shadow: var(--shadow);
@@ -265,9 +264,9 @@ a {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* metni dikey ortala */
+  justify-content: center;
   height: 100%;
-  min-height: 160px; /* yükseklik eşitliği garanti */
+  min-height: 160px;
 }
 
 .cat-item:hover {
@@ -295,23 +294,21 @@ a {
   margin: 0;
 }
 
-/* Sadece Menü kutusu için ortalama */
-.cat-item h3 {
-  color: var(--rose);
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
+/* --- Mobil görünüm: alt alta kutular --- */
+@media (max-width: 992px) {
+  .category-list {
+    flex-wrap: wrap;        /* alt satıra geçebilir */
+    flex-direction: column; /* dikey sırala */
+    align-items: center;
+  }
+
+  .cat-item {
+    flex: 1 1 100%;
+    width: 90%;
+    max-width: 400px;
+  }
 }
 
-/* Menü başlığı için özel düzen */
-.cat-item:has(h3:contains("Menü")) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cat-item:has(h3:contains("Menü")) h3 {
-  margin: 0;
-}
 
 .menu-item {
   display: flex;
