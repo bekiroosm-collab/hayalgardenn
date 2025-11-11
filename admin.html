@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hayal Garden | Admin Paneli</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Basit grid ve görüntü ayarları */
+    #galleryPreview {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .gallery-item {
+      position: relative;
+    }
+    .gallery-item button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: rgba(255, 0, 0, 0.7);
+      border: none;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .gallery-item span {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 12px;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <h1><img src="img/logo.jpg" alt="Hayal Garden Logo" class="logo"></h1>
+        <p>Yönetim Paneli</p>
+      </div>
+      <nav>
+        <ul>
+          <li class="active" data-section="dashboard">Dashboard</li>
+          <li data-section="reservations">Rezervasyonlar</li>
+          <li data-section="posts">Yazılar</li>
+          <li data-section="gallery">Galeri</li>
+          <li data-section="settings">Ayarlar</li>
+          <li id="logoutBtn">Çıkış Yap</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <button id="menuToggle" class="menu-toggle">☰</button>
+        <h1>Hoş Geldin, Admin 🌷</h1>
+      </header>
+
+      <section id="dashboard" class="panel active">
+        <h2>Yönetici Özeti</h2>
+        <div class="cards">
+          <div class="card"><h3>Toplam Rezervasyon</h3><p id="totalReservations">0</p></div>
+          <div class="card"><h3>Blog Yazıları</h3><p id="totalPosts">0</p></div>
+          <div class="card"><h3>Galeri Görselleri</h3><p id="totalImages">0</p></div>
+        </div>
+      </section>
+
+      <section id="reservations" class="panel">
+        <h2>Rezervasyon Listesi</h2>
+        <table>
+          <thead><tr><th>İsim</th><th>Tarih</th><th>Kişi Sayısı</th><th>Durum</th><th>İşlem</th></tr></thead>
+          <tbody id="reservationTable"></tbody>
+        </table>
+      </section>
+
+      <section id="posts" class="panel">
+        <h2>Blog Yazıları</h2>
+        <div class="post-form">
+          <input type="text" id="postTitle" placeholder="Başlık">
+          <textarea id="postContent" placeholder="İçerik"></textarea>
+          <button id="addPostBtn" class="btn-primary">Yazıyı Ekle</button>
+        </div>
+        <ul id="postList" class="post-list"></ul>
+      </section>
+
+      <section id="gallery" class="panel">
+        <h2>Galeri</h2>
+        <input type="file" id="uploadImage" accept="image/*">
+        <select id="imageCategory">
+          <option value="dugun">Düğün</option>
+          <option value="mekan">Mekan</option>
+          <option value="detay">Detay</option>
+          <option value="hazirlik">Hazırlık</option>
+        </select>
+        <div id="galleryPreview"></div>
+      </section>
+
+      <section id="settings" class="panel">
+        <h2>Ayarlar</h2>
+        <p>Bu bölüm yakında eklenecek 🌸</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

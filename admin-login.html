@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hayal Garden | Admin Giriş</title>
+<link rel="stylesheet" href="css/admin-login.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="login-container">
+  <div class="login-box">
+    <h1><img src="img/logo.jpg" alt="Hayal Garden Logo" class="logo"></h1>
+    <p>Admin Girişi</p>
+
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Kullanıcı Adı" required>
+      <input type="password" id="password" placeholder="Şifre" required>
+      <button type="submit">Giriş Yap</button>
+    </form>
+
+    <p class="note">Sadece yetkili kullanıcılar erişebilir</p>
+  </div>
+</div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    if(user === 'admin' && pass === 'hayalgarden123'){
+        localStorage.setItem('isAdmin','true');
+        window.location.href = 'admin.html';
+    } else {
+        alert('Hatalı kullanıcı adı veya şifre!');
+    }
+});
+</script>
+</body>
+</html>

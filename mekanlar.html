@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mekanlar — Hayal Garden</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo.png">
+  <style>
+    /* Ek özel stil dokunuşları */
+.page-hero {
+  background: 
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("img/pink-texture.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  background-attachment: fixed;
+}
+
+
+    .page-hero h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .filter-bar button {
+      background: #f1f1f1;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .filter-bar button:hover,
+    .filter-bar button.active {
+      background: #d8b4fe;
+      color: #fff;
+    }
+
+    .card {
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      height: 220px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .info-box {
+      background: #f9f9f9;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 60px auto;
+      max-width: 800px;
+    }
+
+    .info-box p {
+      color: #444;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="img/logo.jpg" alt="Hayal Garden Logo" width="56" height="56">
+        <div class="brand-info">
+          <h1>Hayal Garden</h1>
+          <p class="tag">Düğün mekanları • Organizasyon fikirleri • Fotoğraf rehberi</p>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">Anasayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="galeri.html">Düğünlerimiz</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="menü.html">Menü</a>
+      </nav>
+
+      <button class="burger" aria-label="Menüyü aç">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h2>Hayalinizdeki Mekanı Keşfedin</h2>
+    <p>Şehir manzaralı teraslardan rustik kır alanlarına, her zevke uygun davet mekanları</p>
+  </section>
+
+  <!-- FİLTRE MENÜ -->
+  <div class="wrap">
+    <div class="filter-bar">
+      <button class="active" data-filter="all">Tümü</button>
+      <button data-filter="bahce">Bahçe</button>
+      <button data-filter="teras">Teras</button>
+      <button data-filter="salon">Salon</button>
+      <button data-filter="kir">Kır</button>
+    </div>
+  </div>
+
+  <!-- MEKANLAR -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cards-grid" id="mekanGrid">
+        <article class="card" data-type="bahce">
+          <img src="img/gül-bahcesi.jpg" alt="Gül Bahçesi">
+          <div class="card-body">
+            <h4>Gül Bahçesi Davet</h4>
+            <p class="muted">Bahçe & Kapalı Alan • 150 Kişi</p>
+            <p>Romantik atmosferiyle öne çıkan, ışıklandırması ve canlı çiçek dekorasyonu ile fark yaratan mekan.</p>
+          </div>
+        </article>
+
+        <article class="card" data-type="teras">
+          <img src="img/hayal.jpg" alt="Hayal Terası">
+          <div class="card-body">
+            <h4>Hayal Terası</h4>
+            <p class="muted">Teras • 120 Kişi</p>
+            <p>Şehir ışıkları eşliğinde, modern detaylarla tasarlanmış akşam davetleri için eşsiz bir teras.</p>
+          </div>
+        </article>
+
+        <article class="card" data-type="kir">
+          <img src="img/kır.jpg" alt="Kır Daveti">
+          <div class="card-body">
+            <h4>Doğa Kır Daveti</h4>
+            <p class="muted">Kır Alanı • 100 Kişi</p>
+            <p>Ahşap detaylar, rustik masa süslemeleri ve açık hava konforuyla sıcak bir kır konsepti.</p>
+          </div>
+        </article>
+
+        <article class="card" data-type="salon">
+          <img src="img/salon.jpg" alt="Beyaz Salon">
+          <div class="card-body">
+            <h4>Beyaz Salon</h4>
+            <p class="muted">Salon • 200 Kişi</p>
+            <p>Yüksek tavan, modern aydınlatma ve sade dekorasyonu ile klasik düğün konseptlerine uygun şık bir salon.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BİLGİ KUTUSU -->
+  <div class="info-box">
+    <h3>Doğru Mekanı Nasıl Seçersiniz?</h3>
+    <p>
+      Davetinizin konseptine, misafir sayısına ve mevsime göre seçim yapmak her zaman en doğru tercih olur.  
+      Hayal Garden ekibi olarak size en uygun mekan için ücretsiz danışmanlık sağlıyoruz.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="copyright">
+        © <span id="year"></span> Hayal Garden — Tüm hakları saklıdır.
+      </div>
+      <nav class="tiny-nav">
+        <a href="#">Gizlilik</a>
+        <a href="#">KVKK</a>
+        <a href="#">S.S.S.</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobil menü
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".main-nav");
+    burger && burger.addEventListener("click", () => nav.classList.toggle("open"));
+
+    // Filtreleme
+    const buttons = document.querySelectorAll(".filter-bar button");
+    const cards = document.querySelectorAll(".card");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const type = btn.dataset.filter;
+        cards.forEach(card => {
+          card.style.display = (type === "all" || card.dataset.type === type) ? "block" : "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>

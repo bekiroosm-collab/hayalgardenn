@@ -1,0 +1,325 @@
+/* ============================= */
+/* Genel Ayarlar */
+/* ============================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f5f2;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ============================= */
+/* Sidebar */
+/* ============================= */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+    transform: translateX(-100%);
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .logo h2 {
+    color: #e77ca5;
+    font-size: 24px;
+}
+
+.sidebar .logo p {
+    color: #888;
+    font-size: 14px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    padding: 12px 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.sidebar nav ul li.active,
+.sidebar nav ul li:hover {
+    background-color: #fce4ec;
+    color: #e77ca5;
+}
+
+.sidebar nav ul li#logoutBtn {
+    margin-top: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ============================= */
+/* Main Content */
+/* ============================= */
+.content {
+    flex: 1;
+    padding: 20px 30px;
+    overflow-y: auto;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.menu-toggle {
+    display: none;
+    background-color: #e77ca5;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 5px;
+}
+
+/* ============================= */
+/* Panels */
+/* ============================= */
+.panel {
+    display: none;
+}
+
+.panel.active {
+    display: block;
+}
+
+/* ============================= */
+/* Dashboard Cards */
+/* ============================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #e77ca5;
+}
+
+/* ============================= */
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #fce4ec;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    font-weight: 600;
+    color: #e77ca5;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status.onaylandı { background-color: #d4edda; color: #155724; }
+.status.bekliyor { background-color: #fff3cd; color: #856404; }
+.status.iptal { background-color: #f8d7da; color: #721c24; }
+
+/* Buttons in table */
+.btn-success { background-color: #28a745; color: #fff; padding: 4px 8px; border-radius: 4px; }
+.btn-cancel { background-color: #dc3545; color: #fff; padding: 4px 8px; border-radius: 4px; }
+.btn-delete { background-color: #6c757d; color: #fff; padding: 4px 8px; border-radius: 4px; margin-left: 2px; }
+
+/* ============================= */
+/* Post Form */
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.post-form input, .post-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    width: 100%;
+}
+
+.post-form button {
+    background-color: #e77ca5;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Post list */
+.post-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.post-item h4 {
+    color: #e77ca5;
+    margin-bottom: 5px;
+}
+
+.post-item p {
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* ============================= */
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.gallery-item button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(220,53,69,0.9);
+    color: #fff;
+    border-radius: 50%;
+    padding: 4px 7px;
+    font-size: 12px;
+}
+
+/* ============================= */
+/* Responsive */
+@media(max-width: 768px){
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        transform: translateX(-100%);
+        z-index: 100;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Sidebar genel düzen */
+.sidebar {
+  width: 250px;
+  background-color: #f8f9fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+}
+
+/* Logo alanı */
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Logo resmi */
+.sidebar .logo img {
+  width: 120px;       /* logonun boyutu */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px; /* istersen kaldır */
+  object-fit: contain;
+}
+
+/* "Yönetim Paneli" yazısı */
+.sidebar .logo p {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #555;
+}

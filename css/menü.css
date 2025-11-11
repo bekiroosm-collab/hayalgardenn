@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #4b1f1b; /* koyu bordo kahverengi */
+  color: #fff;
+}
+
+/* Genel Layout */
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: auto;
+  padding: 30px;
+  gap: 30px;
+}
+
+/* Sol Yazı Alanı */
+.menu-left {
+  flex: 1;
+  min-width: 330px;
+  background: rgba(0,0,0,0.25);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.menu-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffb600;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin-top: 22px;
+  font-size: 18px;
+  color: #ffe3b3;
+  text-transform: uppercase;
+}
+
+ul {
+  margin: 8px 0;
+  padding-left: 18px;
+}
+
+.note {
+  margin-top: 25px;
+  font-size: 12px;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* Sağ Fotoğraf Alanı */
+.menu-right {
+  flex: 1;
+  min-width: 330px;
+  max-height: 88vh;
+  overflow-y: scroll;
+  border-radius: 12px;
+  padding-right: 5px;
+}
+
+/* Fotoğraf Grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  height: 210px;
+  background: #ccc;
+}
+
+/* Scroll Bar */
+.menu-right::-webkit-scrollbar {
+  width: 6px;
+}
+.menu-right::-webkit-scrollbar-thumb {
+  background: #ffb600;
+  border-radius: 10px;
+}
+
+/* Mobil uyum */
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+  }
+}

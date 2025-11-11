@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hayal Garden — Düğün & Etkinlik Rehberi</title>
+
+  <!-- Stil dosyası: css/styles.css (ayrı gönderilecek) -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Site ikonunuz -->
+  <link rel="icon" href="assets/logo.png">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="img/logo.jpg" alt="Hayal Garden Logo" width="56" height="56">
+        <div class="brand-info">
+          <h1>Hayal Garden</h1>
+          <p class="tag">Düğün mekanları • Organizasyon fikirleri • Fotoğraf rehberi</p>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Ana menü">
+        <a href="#anasayfa">Anasayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="galeri.html">Düğünlerimiz</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="menü.html">Menü</a>
+      </nav>
+
+      <button class="burger" aria-label="Menüyü aç">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="anasayfa" class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <h2>Hayalinizdeki düğünü birlikte tasarlayalım</h2>
+        <p>Özenle seçilmiş mekanlar, gerçek düğün hikâyeleri ve ilham veren görseller. Planlamadan önce fikir almak için doğru yerdesiniz.</p>
+        <p>
+          <a class="btn-primary" href="hizmetler.html">Hizmetler</a>
+        </p>
+      </div>
+
+      <div class="hero-image">
+        <img src="img/logo-yani.png" alt="Düğün dekorasyonu" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+<!-- Rezervasyon Formu (index.html içinde) -->
+<section id="reservation-section" class="section light">
+  <div class="wrap">
+    <h3>Rezervasyon Yap</h3>
+    <form id="reservationForm">
+      <input type="text" id="resName" placeholder="İsim" required>
+      <input type="tel" id="resPhone" placeholder="Telefon Numarası" required pattern="[0-9]{10,11}" title="Lütfen geçerli bir telefon numarası girin">
+      <input type="date" id="resDate" required>
+      <input type="number" id="resPeople" placeholder="Kişi Sayısı" required min="1">
+      <button type="submit">Rezervasyon Yap</button>
+    </form>
+  </div>
+</section>
+
+
+<script>
+  const reservationForm = document.getElementById('reservationForm');
+
+  reservationForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('resName').value.trim();
+    const date = document.getElementById('resDate').value;
+    const people = document.getElementById('resPeople').value;
+
+    if (!name || !date || !people) {
+      alert('Lütfen tüm alanları doldurun.');
+      return;
+    }
+
+    // LocalStorage'tan eski rezervasyonları çek
+    const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+
+    // Yeni rezervasyon objesi
+    const newReservation = {
+      id: Date.now(),
+      name: name,
+      date: date,
+      people: people,
+      status: 'Beklemede'
+    };
+
+    // BLOG YAZILARINI LOCALSTORAGE'DAN ÇEK
+const postsGrid = document.querySelector('.posts-grid');
+const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+if (savedPosts.length) {
+  postsGrid.innerHTML = savedPosts.map(p => `
+    <article class="post">
+      <h4>${p.title}</h4>
+      <p class="muted">${p.content}</p>
+    </article>
+  `).join('');
+}
+
+// GALERİYİ LOCALSTORAGE'DAN ÇEK
+const galleryGrid = document.querySelector('.gallery-grid');
+const savedGallery = JSON.parse(localStorage.getItem('gallery')) || [];
+if (savedGallery.length) {
+  galleryGrid.innerHTML = savedGallery.map(src => `<img src="${src}" alt="galeri">`).join('');
+}
+
+
+    // Listeye ekle
+    reservations.push(newReservation);
+
+    // Kaydet
+    localStorage.setItem('reservations', JSON.stringify(reservations));
+
+    // Formu sıfırla
+    reservationForm.reset();
+
+    alert('Rezervasyon isteğiniz başarıyla alındı. 🌸');
+  });
+</script>
+
+
+  <!-- KATEGORİ KUTULARI (farklı renk bloklar) -->
+  <section class="categories">
+    <div class="wrap">
+      <ul class="category-list">
+
+        <a href="hizmetler.html" class="cat-link">
+        <li class="cat-item">
+          <h3>Düğün</h3>
+          <p>4000 kişilik alanımızla sizlerin hayallerinizi gerçekleştiriyoruz.</p>
+        </li>
+        </a>
+        <a href="hizmetler.html" class="cat-link">
+        <li class="cat-item">
+          <h3>Toplantı</h3>
+          <p>İş görüşmeleri, toplantılar, organizasyonlar ve toplu yemeklerle sizlere hizmet vermekteyiz.</p>
+        </li>
+        </a>
+        <a href="hizmetler.html" class="cat-link">
+        <li class="cat-item">
+          <h3>İsteğe bağlı organizasyon</h3>
+          <p>Siz hayal edin biz gerçekleştirelim.</p>
+        </li>
+        </a>
+        <a href="menü.html" class="cat-link">
+        <li class="cat-item">
+          <h3>Menü</h3>
+          <p></p>
+        </li>
+        </a>
+        <a href="hizmetler.html" class="cat-link">
+        <li class="cat-item">
+          <h3>Mezuniyet Balosu</h3>
+          <p>Hayal Garden olarak, yıllarca süren emeğinizi ve başarılarınızı taçlandırdığınız bu özel gecede sizlere unutulmaz bir deneyim sunuyoruz.</p>
+        </li>
+        </a>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MEKANLAR (kaydırmalı galeri) -->
+<section id="mekanlar" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h3>Salonumuz</h3>
+    </div>
+
+    <!-- Kaydırmalı Galeri -->
+    <div class="scroll-gallery">
+      <img src="img/acik.png" alt="Salon 1">
+      <img src="img/kapali.png" alt="Salon 2">
+      <img src="img/salon-2.png" alt="Salon 3">
+      <img src="img/salon.png" alt="Salon 4">
+    </div>
+
+    <!-- Başlık -->
+    <div class="salon-title">
+      <h4>Kır bahçeli üstü açık kapanır salon</h4>
+    </div>
+  </div>
+</section>
+
+
+  <!-- HİZMETLER / TEDARİKÇİLER -->
+  <section id="hizmetler" class="section light">
+    <div class="wrap">
+      <h3>Hizmetlerimiz</h3>
+      <div class="service-row">
+        <div class="service">
+          <h4>Düğün</h4>
+          <p>4000 kişilik alanımızla sizlerin hayallerinizi gerçekleştiriyoruz.</p>
+        </div>
+        <div class="service">
+          <h4>Toplantı</h4>
+          <p>İş görüşmeleri, toplantılar, organizasyonlar ve toplu yemeklerle sizlere hizmet vermekteyiz.</p>
+        </div>
+        <div class="service">
+          <h4>İsteğe bağlı organizasyon</h4>
+          <p>Siz hayal edin biz gerçekleştirelim.</p>
+        </div>
+        <div class="service">
+          <h4>Mezuniyet Balosu</h4>
+          <p>Hayal Garden olarak, yıllarca süren emeğinizi ve başarılarınızı taçlandırdığınız bu özel gecede sizlere unutulmaz bir deneyim sunuyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG KISMI -->
+  <section id="blog" class="section light">
+    <div class="wrap">
+      <h3>Anlaşmalı olduğumuz firmalar</h3>
+      <div class="posts-grid">
+        <article class="post">
+          <h4>%10 İndirim</h4>
+          <p class="muted">DÜZENLENİLECEK</p>
+          
+        </article>
+
+        <article class="post">
+          <h4>%20 İndirim</h4>
+          <p class="muted">DÜZENLENİLECEK.</p>
+        </article>
+
+        <article class="post">
+          <h4>%30 İndirim </h4>
+          <p class="muted">DÜZENLENİLECEK</p>
+          
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section id="iletisim" class="section contact">
+    <div class="wrap contact-wrap">
+      <div class="contact-card">
+        <h3>Bize Ulaşın</h3>
+        <form class="contact-form" action="#" method="post">
+          <label>
+            <span>Adınız</span>
+            <input type="text" name="name" placeholder="Adınız">
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="email@ornek.com">
+          </label>
+
+          <label>
+            <span>Mesaj</span>
+            <textarea name="message" rows="4" placeholder="Kısa mesajınız..."></textarea>
+          </label>
+
+          <button class="btn-primary" type="submit">Gönder</button>
+        </form>
+      </div>
+
+      <aside class="contact-info">
+        <h4>İletişim Bilgileri</h4>
+        <p><a href="tel:05425170018">Telefon: 0 (542) 517 0018</a></p>
+<p><a href="tel:05423667366">Telefon: 0 (542) 366 7366</a></p>
+        <p>Email: hayalgardenornek@gmail.com</p>
+        <p>Adres: Çankırı - Ankara karayolu 4 km
+Küçük sanayi bölgesi Merkez / Çankırı</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="copyright">© <span id="year"></span> Hayal Garden — Tüm hakları saklıdır.</div>
+      <nav class="tiny-nav">
+        <a href="#">Gizlilik</a>
+        <a href="#">KVKK</a>
+        <a href="#">S.S.S.</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Ana JS dosyası: js/main.js (ayrı gönderilecek) -->
+  <script>
+    // Küçük yardımcılar: yıl gösterme ve mobil menü
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobil menü toggle
+    (function(){
+      const burger = document.querySelector('.burger');
+      const nav = document.querySelector('.main-nav');
+      burger && burger.addEventListener('click', ()=> nav.classList.toggle('open'));
+    })();
+  </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const postsGrid = document.querySelector(".posts-grid");
+    const savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    if (savedPosts.length > 0 && postsGrid) {
+      postsGrid.innerHTML = savedPosts.map(post => `
+        <article class="post">
+          <h4>${post.title}</h4>
+          <p class="muted">${post.content}</p>
+        </article>
+      `).join('');
+    }
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const galleryGrid = document.querySelector('.gallery-grid');
+  const savedGallery = JSON.parse(localStorage.getItem('gallery')) || [];
+
+  if (galleryGrid && savedGallery.length > 0) {
+    galleryGrid.innerHTML = savedGallery.map(src => `<img src="${src}" alt="galeri">`).join('');
+  }
+});
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+

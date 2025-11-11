@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hakkımızda — Hayal Garden</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo.png">
+  <style>
+    /* HERO BÖLÜMÜ */
+    .page-hero {
+      background: 
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("img/pink-texture.jpg") center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+      background-attachment: fixed;
+    }
+
+    .page-hero h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
+
+    .page-hero p {
+      max-width: 750px;
+      margin: 10px auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* GRID KUTULAR */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .grid-card {
+      background: #fff;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .grid-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .grid-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #222;
+      font-weight: 600;
+    }
+
+    .grid-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* CTA BÖLÜMÜ */
+    .cta-box {
+      background: #d8b4fe;
+      padding: 50px 30px;
+      border-radius: 12px;
+      text-align: center;
+      color: #fff;
+      margin: 50px auto 80px;
+      max-width: 800px;
+    }
+
+    .cta-box h3 {
+      font-size: 1.9rem;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .cta-box p {
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: #fff;
+      color: #d8b4fe;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #f3e8ff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="img/logo.jpg" alt="Hayal Garden Logo" width="56" height="56">
+        <div class="brand-info">
+          <h1>Hayal Garden</h1>
+          <p class="tag">Düğün mekanları • Organizasyon fikirleri • Fotoğraf rehberi</p>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">Anasayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="galeri.html">Düğünlerimiz</a>
+        <a href="hakkimizda.html" class="active">Hakkımızda</a>
+        <a href="menü.html">Menü</a>
+      </nav>
+
+      <button class="burger" aria-label="Menüyü aç">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h2>Hakkımızda</h2>
+  </section>
+
+  <!-- HAKKIMIZDA METİN -->
+  <div class="wrap">
+    <section class="section">
+      <h3 class="sec-title">Biz Kimiz?</h3>
+      <p style="max-width: 800px; margin: auto; color:#555; font-size:1rem; line-height:1.75;">
+        10 yıldır hayallerinizindeki düğünleri gerçeğe dönüştürüyoruz….
+Siz hayal edin biz gerçekleştirelim.
+Kurulduğumuz günden bu yana, her çiftin özel anına şahitlik etmeyi bir onur saydık. Bugüne kadar 650’ye aşkın düğüne ev sahipliği yaptık; her biri benzersiz, her biri özel ve her biri sevgiyle tasarlandı.
+
+Biz, sadece bir düğün salonu değiliz; sizin sevginizi, heyecanınızı ve hayallerinizi gerçeğe dönüştüren tutkulu bir ekibiz. En ince detaylarıyla düşünülmüş organizasyonlardan, günlerce hatırlanacak anlara kadar; her şey, mutluluğunuz için…
+
+Sizinle birlikte tasarlıyor, birlikte gülümsüyor ve birlikte kutluyoruz, çünkü biliyoruz ki bu an yalnızca bir an değil — ömür boyu anlatılacak bir hikâyenin başlangıcı.
+Hayallerinizin gerçek olduğu tek adres…
+      </p>
+    </section>
+
+    <!-- GRID: MİSYON, VİZYON, DEĞER -->
+    <section class="section">
+      <h3 class="sec-title">Misyon, Vizyon ve Değerler</h3>
+      <div class="grid-cards">
+        <div class="grid-card">
+          <h4>Misyonumuz</h4>
+          <p>Hayalinizdeki düğün ve organizasyonu, en güncel bilgiler ve önerilerle keyifli bir yolculuğa dönüştürmek.</p>
+        </div>
+        <div class="grid-card">
+          <h4>Vizyonumuz</h4>
+          <p>Türkiye'nin en güvenilir dijital düğün rehberi platformu olarak, ilham veren içeriklerle fark yaratmak.</p>
+        </div>
+        <div class="grid-card">
+          <h4>Değerlerimiz</h4>
+          <p>Şeffaflık, güven ve müşteri memnuniyeti. Her kararımızda sizi ve hayallerinizi ön planda tutuyoruz.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- İSTATİSTİKLER -->
+    <section class="section">
+      <h3 class="sec-title">Rakamlarla Hayal Garden</h3>
+      <div class="grid-cards">
+        <div class="grid-card"><h4>650+</h4><p>Gerçekleşen Düğün</p></div>
+        <div class="grid-card"><h4>400+</h4><p>Organizasyon Planlama</p></div>
+        <div class="grid-card"><h4>150+</h4><p>Önerilen Mekan & Tedarikçi</p></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3>Hayalinizdeki düğünü birlikte tasarlayalım!</h3>
+  </div>
+
+  
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="copyright">
+        © <span id="year"></span> Hayal Garden — Tüm hakları saklıdır.
+      </div>
+       <aside class="contact-info">
+        <h4>İletişim Bilgileri</h4>
+        <p><a href="tel:05425170018">Telefon: 0 (542) 517 0018</a></p>
+<p><a href="tel:05423667366">Telefon: 0 (542) 366 7366</a></p>
+        <p>Email: hayalgardenornek@gmail.com</p>
+        <p>Adres: Çankırı - Ankara karayolu 4 km
+Küçük sanayi bölgesi Merkez / Çankırı</p>
+      </aside>
+    </div>
+  </section>
+      <nav class="tiny-nav">
+        <a href="#">Gizlilik</a>
+        <a href="#">KVKK</a>
+        <a href="#">S.S.S.</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".main-nav");
+    burger && burger.addEventListener("click", () => nav.classList.toggle("open"));
+  </script>
+
+</body>
+</html>
